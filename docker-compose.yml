@@ -1,10 +1,8 @@
-version: '3'
-
 services:
   web:
     build: .
     ports:
-      - 127.0.0.1:7001:80
+      - 7001:80
     depends_on:
       - memcached
       - mysql
@@ -24,7 +22,7 @@ services:
   pg:
     image: postgres:16-bookworm
     ports:
-      - 127.0.0.1:54321:5432
+      - 54321:5432
     volumes:
       - pg-data:/var/lib/postgresql/data
     environment:
@@ -34,7 +32,7 @@ services:
   mysql:
     image: percona:ps-8.0
     ports:
-      - 127.0.0.1:36000:3306
+      - 36000:3306
     volumes:
       - mysql-data:/var/lib/mysql
     environment:
